@@ -38,13 +38,19 @@ final class UiContext implements Context
      */
     public function beforeScenario(BeforeScenarioScope $scope): void
     {
-        $this->client = Client::createChromeClient(null, [
-            '--headless',
+        $options = [
             '--disable-gpu',
             '--no-sandbox',
             '--disable-dev-shm-usage',
             '--window-size=1920,1080',
-        ]);
+        ];
+
+        // Run headless unless PANTHER_NO_HEADLESS is set
+        if (!getenv('PANTHER_NO_HEADLESS')) {
+            array_unshift($options, '--headless');
+        }
+
+        $this->client = Client::createChromeClient(null, $options);
     }
 
     /**
