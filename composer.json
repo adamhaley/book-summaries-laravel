@@ -17,13 +17,16 @@
         "laravel/wayfinder": "^0.1.9"
     },
     "require-dev": {
+        "behat/behat": "^3.14",
+        "dbrekelmans/bdi": "^1.3",
         "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^11.5.3"
+        "phpunit/phpunit": "^11.5.3",
+        "symfony/panther": "^2.1"
     },
     "autoload": {
         "psr-4": {
@@ -34,7 +37,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Features\\Bootstrap\\": "features/bootstrap/",
+            "Features\\Support\\": "features/support/"
         }
     },
     "scripts": {
@@ -58,6 +63,9 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
+        ],
+        "behat": [
+            "./vendor/bin/behat"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

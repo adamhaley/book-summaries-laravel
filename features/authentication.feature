@@ -28,7 +28,7 @@ Feature: User Authentication
     Given I am on the sign in page
     When I enter email "test@example.com"
     And I enter password "testpassword123"
-    And I click the submit button
+    And I click the "Sign in" button
     Then I should be redirected to the dashboard
     And I should see the dashboard library page
 
@@ -36,7 +36,7 @@ Feature: User Authentication
     Given I am on the sign in page
     When I enter email "invalid@example.com"
     And I enter password "wrongpassword"
-    And I click the submit button
+    And I click the "Sign in" button
     Then I should see an error message
     And I should remain on the sign in page
 
@@ -44,7 +44,7 @@ Feature: User Authentication
     Given I am on the sign in page
     When I enter email "unconfirmed@example.com"
     And I enter password "testpassword123"
-    And I click the submit button
+    And I click the "Sign in" button
     Then I should see an error about email verification
     And the error should mention checking inbox
 

@@ -78,7 +78,7 @@ Feature: Book Library
     And each row should show a clickable book cover
 
   Scenario: Library shows empty state when no books exist
-    Given there are no books in the library
+    Given the library is empty
     When I visit the library page
     Then I should see "No books available yet" message
     And I should not see the books table

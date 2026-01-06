@@ -1,0 +1,25 @@
+default:
+  suites:
+    ui:
+      paths:
+        - '%paths.base%/features'
+      contexts:
+        - Features\Bootstrap\UiContext:
+            base_url: 'http://localhost:8000'
+
+  formatters:
+    pretty:
+      verbose: true
+      paths: false
+
+# For CI environments with stricter settings
+ci:
+  suites:
+    ui:
+      paths:
+        - '%paths.base%/features'
+      contexts:
+        - Features\Bootstrap\UiContext:
+            base_url: 'http://localhost:8000'
+  formatters:
+    progress: ~
