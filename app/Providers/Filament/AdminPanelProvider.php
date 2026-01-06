@@ -29,7 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Book Summaries Admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Teal,
             ])
             ->sidebarCollapsibleOnDesktop()
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
